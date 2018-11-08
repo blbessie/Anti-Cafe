@@ -1,0 +1,112 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+members {
+	font-family: Helvetica,Arial, sans-serif;
+    background-color:#F2EEEB;
+    display:none;
+}
+
+
+#main {
+position: relative;
+top:250px;
+left:20%;
+}
+
+#main img{
+    width: 25%;
+    height:25%;
+}
+
+#old {
+    position: relative;
+	background-color:#E64C3C;
+	text-decoration: none;
+    color:#F2EEEB;
+	font-size:35px;
+    left: 700px;
+    top:90px;
+    width: 250px;
+    height: 150px;
+}
+
+#oldMembers {
+    position: relative;
+	background-color:#E64C3C;
+	text-decoration: none;
+    color:#F2EEEB;
+	font-size:35px;
+    left: 700px;
+    top:90px;
+    width: 250px;
+    height: 150px;
+}
+
+#newMembers {
+    position: relative;
+	background-color:#E64C3C;
+	text-decoration: none;
+    color:#F2EEEB;
+	font-size:35px;
+    left: 1000px;
+    top:-60px;
+    width: 250px;
+    height: 150px;
+}
+
+p {
+position: objective;
+margin-left:50px;
+}
+
+.login {
+    background-color:#CBB292;
+    width:500px;
+    margin-left:450px;
+    padding:50px;
+    color: #F2EEEB;
+    display:none; 
+    }
+
+.signIn{
+    background-color:#CBB292;
+    width:550px;
+    margin-left:450px;
+    padding:35px 0 15px 50px;
+    color: #F2EEEB;
+    display:none; 
+}
+
+.button{
+    width: 550px;
+    padding:15px 0 15px 50px;
+    background-color: #E64C3C;
+    color: #F2EEEB;
+    display:none; 
+    margin-left:450px;
+}   
+
+.button:hover{
+    background-color: #CBB292;
+    color: #E64C3C;
+    font-weight:bold;
+}   
+
+.button2{
+    width: 550px;
+    padding:15px 0 15px 50px;
+    background-color: #E64C3C;
+    color: #F2EEEB;
+    margin-left:450px;
+     display:none; 
+}   
+
+.button2:hover{
+    background-color: #CBB292;
+    color: #E64C3C;
+    font-weight:bold;
+}   
+
