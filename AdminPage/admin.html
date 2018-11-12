@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<style>
+    .jumbotron {
+        background-color: #fff;
+        padding: 30px !important;
+        border: 1px solid #dfe8f1;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    button, input, optgroup, select, textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        width: 150px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="admin.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 id="hello,-world!">Admin Page<a class="anchorjs-link" href="#hello,-world!"><span class="anchorjs-icon"></span></a></h1>
+            <p>Hello Admin of Anti-Cafe</p>
+
+                <div id="dialog-form" title="Create new user">
+
+                    <form>
+                        <fieldset>
+
+                            <label for="name">First Name: </label>
+                            <input type="text" name="first" id="first" class="text">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="name">Last Name: </label>
+                            <input type="text" name="last" id="last" value="" class="text">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="name">Amount: </label>
+                            <input type="text" name="amount" id="amount" value="" class="text">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-primary" id="create-user">Create new user</button>
+
+                        </fieldset>
+               
+                    </form>
+                </div>
+
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button type="button" class="btn btn-primary" id="delete-user">Delete Users</button>
+
+    </div>
+</body>
+</html>
