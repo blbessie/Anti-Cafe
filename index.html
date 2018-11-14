@@ -5,56 +5,58 @@
 	<head>
 		<title>COMP307 - Main Page</title>
         <link rel="stylesheet" href="style.css">
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="java.js"></script>
     </head>
     
-<a onClick="fade()">X</a>
 
-<members style="background-color:#F2EEEB">
+
+<body style="background-color:#F2EEEB">
 
     <div id="main">
-        <img src="sign.png" alt="logo"/>
+        <img id="logo" style="width:448.5px; height:256px"  src="sign.png" alt="logo"/>
     </div>
 
-    <a onClick="showLogIn()"><div id="oldMembers"><p>Login</p></div></a>
-    <a onClick="showSignIn()"><div id="newMembers"><p>Sign In</p></div></a>
-
-    <div class="login">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+    <div id="description"> The anticaf&eacute concept is to provide a space when you need to study. 
+            You will be able to reserve your spot and study in peace as long as you have paid for your seat.
+            We will be there if you need anything, either it be food or some drinks to give you the energy to keep going.
+            Become one of our members right now and you will never have to worry again if you are going to be able to get a seat at the library!
         
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>  
-    </div>
-    <div class="button" type="submit">Log In</div>
-
-    <div class="signIn">
-            <label for="fname"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" name="fname" required>
-            
-            <label for="lname"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lname" required>
-    </div>
-
-    <div class="signIn">
-        <label for="email"><b>E-mail</b></label>
-        <input type="text" placeholder="Enter E-mail Adress" name="email" required>
+        <a onClick="showLogIn()"><div id="oldMembers">Login</div></a>
+        <a onClick="showSignUp()"><div id="newMembers">Sign Up</div></a>
         
-        <label for="email2"><b>Verify E-mail</b></label>
-        <input type="text" placeholder="Verify E-mail Adress" name="email2" required>
-</div>
-    
-    <div class="signIn">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
     </div>
-    <div class="button2" type="submit">Sign In</div>
 
-</members>
+    <a onClick="showLogIn()"><div class="overlay"></div></a>
+    <a class="toQuit" onClick="showLogIn()">X</a>
+    <img id="anticafe" src="anti.png" alt="logo"/>
+    <div class="popupLogIn"> 
+        <form class="popup" name="login" action="login.php"  method="post">
+        <label for="field1"><span>Enter Your Username</span><input type="text" name="uname" required="true" /></label>
+        <label for="field2"><span>Enter Your Password</span><input type="password" name="psw" required="true" /></label>
+        <label><span> </span><span> <input type="submit" value="Login" />
+        </form>
+    </div>
+
+    <a onClick="showSignUp()"><div class="overlay2"></div></a>
+    <a class="toQuit2" onClick="showSignUp()">X</a>
+    <img id="anticafe2" src="anti.png" alt="logo"/>
+    <div class="popupSignUp"> 
+        <form class="popup" name="signup" action="sign up.php" onsubmit="return validateForm()" method="post">
+        <label for="field3"><span>Enter Your First Name</span><input type="text" name="fname" required="true" /></label>
+        <label for="field4"><span>Enter Your Last Name</span><input type="text" name="lname" required="true" /></label>
+        <label for="field5"><span>Enter Your E-Mail</span><input type="email" name="email" required="true" /></label>
+        <label for="field6"><span>Verify Your-Email</span><input type="email" name="email2" required="true" /></label>
+        <label for="field7"><span>Enter Your Username</span><input type="text" name="username" required="true" /></label>
+        <label for="field8"><span>Enter Your Password</span><input type="password" name="password" required="true" /></label>
+        <label for="field9"><span>Verify Your Password</span><input type="password" name="password2" required="true" /></label>
+        <label><span> </span><span> <input type="submit" value="Sign Up" />
+        </form>
+    </div>
+
+    <div id="location">1001 Sherbrooke St W, Montreal, QC H3A 1G5 514.998.4370</div>
+</body>
 
 
 </html>
