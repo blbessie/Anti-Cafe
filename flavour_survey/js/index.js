@@ -85,6 +85,7 @@ function createPromptItems() {
 	}
 }
 
+
 // For each possible value, create a button for each to be inserted into each li of the quiz
 // function createValueButtons() {
 	
