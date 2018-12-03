@@ -32,9 +32,10 @@
     <a class="toQuit" onClick="showLogIn()">X</a>
     <img id="anticafe" src="anti.png" alt="logo"/>
     <div class="popupLogIn"> 
-        <form class="popup" name="login" action="login.php"  method="post">
-        <label for="field1"><span>Enter Your Username</span><input type="text" name="username" required="true" /></label>
-        <label for="field2"><span>Enter Your Password</span><input type="password" name="password" required="true" /></label>
+        <!----form class="popup" name="login" action="login.php"  method="post"-->
+        <form class="popup" name="login">
+        <label for="field1"><span>Enter Your Username</span><input id="login_username" type="text" name="username" required="true" /></label>
+        <label for="field2"><span>Enter Your Password</span><input id="login_password" type="password" name="password" required="true" /></label>
         <label><span> </span><span> <input type="submit" value="Login" />
         </form>
     </div>
@@ -43,13 +44,14 @@
     <a class="toQuit2" onClick="showSignUp()">X</a>
     <img id="anticafe2" src="anti.png" alt="logo"/>
     <div class="popupSignUp"> 
-        <form class="popup" name="signup" action="sign up.php" onsubmit="return validateForm()" method="post">
-        <label for="field3"><span>Enter Your First Name</span><input type="text" name="fname" required="true" /></label>
-        <label for="field4"><span>Enter Your Last Name</span><input type="text" name="lname" required="true" /></label>
-        <label for="field5"><span>Enter Your E-Mail</span><input type="email" name="email" required="true" /></label>
+        <!----form class="popup" name="signup" action="sign up.php" onsubmit="return validateForm()" method="post"-->
+        <form class="popup" name="signup" onsubmit="return validateForm()">
+        <label for="field3"><span>Enter Your First Name</span><input id="fname" type="text" name="fname" required="true" /></label>
+        <label for="field4"><span>Enter Your Last Name</span><input id="lname" type="text" name="lname" required="true" /></label>
+        <label for="field5"><span>Enter Your E-Mail</span><input id="email" type="email" name="email" required="true" /></label>
         <label for="field6"><span>Verify Your-Email</span><input type="email" name="email2" required="true" /></label>
-        <label for="field7"><span>Enter Your Username</span><input type="text" name="username" required="true" /></label>
-        <label for="field8"><span>Enter Your Password</span><input type="password" name="password" required="true" /></label>
+        <label for="field7"><span>Enter Your Username</span><input id="username" type="text" name="username" required="true" /></label>
+        <label for="field8"><span>Enter Your Password</span><input id="password" type="password" name="password" required="true" /></label>
         <label for="field9"><span>Verify Your Password</span><input type="password" name="password2" required="true" /></label>
         <label><span> </span><span> <input type="submit" value="Sign Up" />
         </form>
@@ -60,3 +62,32 @@
 
 
 </html>
+
+<script>
+        $(document).ready(function() {
+            $("#signup_submit").click(function(event){
+                $.ajax({
+                    url: "sign up.php", 
+                    type: "post",
+                    data: {'fname': $('#fname').val(),
+                           'lname': $('#lname').val(),
+                           'username': $('#username').val(),
+                           'password': SHA256($('#password').val()),
+                           'email': $('#email').val(),
+                    },                   
+                    dataType: "json",
+                });
+            });
+            $("#login_submit").click(function(event){
+                $.ajax({
+                    url: "login.php", 
+                    type: "post",
+                    data: {'username': $('#login_username').val(),
+                           'password': SHA256($('#login_password').val()),
+                    }, 
+                    dataType: "json",
+                });
+            });
+        
+        });
+</script>
