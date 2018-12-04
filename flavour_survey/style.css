@@ -6,15 +6,7 @@ body {
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background: #91c1d1;
-  background: -moz-linear-gradient(top, #91c1d1 0%, #91d1c1 99%);
-  background: -webkit-linear-gradient(top, #91c1d1 0%, #91d1c1 99%);
-  background: linear-gradient(to bottom, #91c1d1 0%, #91d1c1 99%);
-  filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr="#91c1d1",
-      endColorstr="#91d1c1",
-      GradientType=0
-    );
+  background: #F5D76E;
   text-align: center;
   color: #fff;
 }
@@ -43,7 +35,6 @@ h1 {
 }
 #answers li {
 	float: left;
-	/*margin:0 5px 0 0;*/
 	margin: 0px 15px 15px 0px;
 	width: 200px;
 	height: 50px;
