@@ -270,11 +270,11 @@
 			document.getElementById("results").innerHTML = '<h1> Spicy Pumpkin Chili </h1><p id="quiz">You\'re a spooky person. We recommad you to\
 															try out our halloween special dish</p>\
 															<br><br>\
-															<p id="quiz">Made with Gound Beef, Red Pepper, Pumpkin Pie, Tomatoes</p>';
+															<p id="quiz">Made with Ground Beef, Red Pepper, Pumpkin Pie, Tomatoes</p>';
 				break;
 				
 			case 2:		//lame
-				document.getElementById("results").innerHTML = '<h1> Spicy Perfect Cappuccino </h1><p id="quiz">You\'re a lame person. We recommad you to\
+				document.getElementById("results").innerHTML = '<h1> Perfect Cappuccino </h1><p id="quiz">You\'re a lame person. We recommad you to\
 																take a sip of our perfect coffee</p>\
 																<br><br>\
 																<p id="quiz">Made with Fresh Milk, Hot Brewed Coffee Beans</p>';
