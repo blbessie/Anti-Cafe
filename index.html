@@ -102,11 +102,19 @@ $(document).ready(function() {
                     document.location.href = '/AdminPage/admin.html';
                 }else{
                     alert('success');
-                    document.location.href = '/Reservation/main.php';
+                    ToMainPage($('#login_username').val());
+                    //document.location.href = '/Reservation/main.php';
                 }
             }
 		});
 	});
 
 });
+
+function ToMainPage(user){
+    $.post("main.php", {username : user}, function(data) {
+        //this is your response data from serv
+        console.log(data);
+    });
+}
 </script>
