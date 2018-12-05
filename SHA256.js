@@ -121,14 +121,3 @@ function SHA256(s){
  s = Utf8Encode(s);
  return binb2hex(core_sha256(str2binb(s), s.length * chrsz));
 }
-
-
-// register onclick events for Encrypt button
-document.getElementById('cryptstr').onclick = function(){
- // gets data from input text
- var txt_string = document.getElementById('strex').value;
-
- // encrypts data and adds it in #strcrypt element
- document.getElementById('strcrypt').value = SHA256(txt_string);
- return false;
-}
