@@ -260,6 +260,7 @@
 		switch (personality) {
 			
 			case 0:	//cute code
+				results.style.display = "inline-block";
 				document.getElementById("show_results").innerHTML = '<h1> Rainbow Macaron </h1><div id="quiz"><div id="questions">You\'re a cute person. We recommad you to\
 																try out our rainbow color macarons\
 																</div></div><br><br>\
@@ -267,13 +268,15 @@
 				break;
 				
 			case 1:		//spooky
-			document.getElementById("show_results").innerHTML = '<h1> Spicy Pumpkin Chili </h1><div id="quiz"><div id="questions">You\'re a spooky person. We recommad you to\
+				results.style.display = "inline-block";
+				document.getElementById("show_results").innerHTML = '<h1> Spicy Pumpkin Chili </h1><div id="quiz"><div id="questions">You\'re a spooky person. We recommad you to\
 															try out our halloween special dish</div></div>\
 															<br><br>\
 															<p id="quiz">Made with Ground Beef, Red Pepper, Pumpkin Pie, Tomatoes</p><br><br>';
 				break;
 				
 			case 2:		//lame
+			    results.style.display = "inline-block";
 				document.getElementById("show_results").innerHTML = '<h1> Perfect Cappuccino </h1><div id="quiz"><div id="questions">You\'re a lame person. We recommad you to\
 																take a sip of our perfect coffee</div></div>\
 																<br><br>\
@@ -297,6 +300,7 @@
 				break;
 				
 			case 5:		//cool
+			    results.style.display = "inline-block";
 				document.getElementById("show_results").innerHTML = '<h1> Real Mojito </h1><div id="quiz"><div id="questions">You\'re a cool person. We recommad you to\
 																try our signature mojito drink\
 																</div></div><br><br>\
@@ -304,7 +308,8 @@
 				break;
 				
 			default: 
-			document.getElementById("show_results").innerHTML = '<h1> Hot Breakfast Sandwich </h1><div id="quiz"><div id="questions">You\'re a mystery person. We recommad you to\
+			    results.style.display = "inline-block";
+				document.getElementById("show_results").innerHTML = '<h1> Hot Breakfast Sandwich </h1><div id="quiz"><div id="questions">You\'re a mystery person. We recommad you to\
 																try out our special Sandwich\
 																</div></div><br><br>\
 																<p id="quiz">Made with Seasoned Egg, Chesse, Bacon</p><br><br>';
