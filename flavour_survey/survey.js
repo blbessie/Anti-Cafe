@@ -261,7 +261,7 @@
 			
 			case 0:	//cute code
 				document.getElementById("show_results").innerHTML = '<h1> Rainbow Macaron </h1><div id="quiz"><div id="questions">You\'re a cute person. We recommad you to\
-																try out 7 rainbow color macarons\
+																try out our rainbow color macarons\
 																</div></div><br><br>\
 																<p id="quiz">Made with Almond, Egg, Oats, Sugar</p><br><br>';
 				break;
@@ -304,7 +304,11 @@
 				break;
 				
 			default: 
-				document.getElementById("error").style.display = "inline-block";
+			document.getElementById("show_results").innerHTML = '<h1> Hot Breakfast Sandwich </h1><div id="quiz"><div id="questions">You\'re a mystery person. We recommad you to\
+																try out our special Sandwich\
+																</div></div><br><br>\
+																<p id="quiz">Made with Seasoned Egg, Chesse, Bacon</p><br><br>';
+				break;
 
 		}
 	}
