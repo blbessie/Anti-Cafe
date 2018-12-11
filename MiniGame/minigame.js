@@ -27,7 +27,8 @@ window.onload = function(){
         scoreSound = new Audio("aud/score.wav"),
         startSound = new Audio("aud/start.wav"),
         username = document.getElementById("currentUser").innerText;
-        
+        playerSpawned = false;
+        inCollision = false;
 
     
 
@@ -45,9 +46,9 @@ window.onload = function(){
         scoreSound.volume = 0.4;
         startSound.volume = 1;
 
-        setInterval(function(){if (gameStage === 1)GenerateSteps();}, 2000);
-        setInterval(function(){if (gameStage === 1)UpdateScore();}, 3000);
-
+        setInterval(function(){if (gameStage === 1)GenerateSteps();}, 1700);
+        setInterval(function(){if (gameStage === 1 && playerSpawned === true)UpdateScore();}, 3000);
+        
         document.addEventListener("keydown", function(event){ 
             console.debug(posx + ", " + posy);      
             if (event.which == 65) //go left
@@ -73,11 +74,11 @@ window.onload = function(){
         });
 
         document.addEventListener("keydown", function(event){
-            if (event.which == 32 && Date.now() - lastJumpTime > 1000 && isGrounded) //jump up
+            if ((event.which == 32 && Date.now() - lastJumpTime > 1345 && isGrounded) || inCollision) //jump up
             {
                 jumpSound.play();
                 lastJumpTime = Date.now();
-                speedy = -8;
+                speedy = -8.5;
             }
         });
     }
@@ -87,7 +88,7 @@ window.onload = function(){
         gameStage = 1;
         score = 0;
         dead = false;
-        SpawnPlayer();
+        setTimeout(function(){SpawnPlayer();}, 3000); 
     }
 
     function Menu(){
@@ -201,10 +202,11 @@ window.onload = function(){
     }
 
     function SpawnPlayer(){
-        posx = 20;
-        posy = 200;
+        posx = Math.floor((Math.random() * 100) + 1) + 50;
+        posy = 100;
         speedy = 0;
         speedx = 0;
+        playerSpawned = true;
     }
 
     function GenerateSteps(){
@@ -212,10 +214,11 @@ window.onload = function(){
         var x = Math.floor((Math.random() * 3) + 1);
         for (i=0; i<x; i++){
             steps.push({
-                originx: Math.floor((Math.random() * 270) + 1) + 100,
-                originy: -5,
-                length: Math.floor((Math.random() * 130) + 1) + 50,
-                height: 10
+                length: Math.floor((Math.random() * 70) + 1) + 30,
+                height: 10,
+                originx: Math.floor((Math.random() * 270/x) + 1) + 130 * i,
+                originy: -5
+                
             });
         }  
     }   
@@ -224,6 +227,7 @@ window.onload = function(){
         for (i=0; i<steps.length; i++){
             //issue for horizontal move
             if(posy > steps[i].originy-cubeWidth && posy < steps[i].originy+steps[i].height){
+                inCollision = true;
                 //left approach
                 if (posx + cubeWidth > steps[i].originx && posx + cubeWidth - speedx <= steps[i].originx){
                     //speedx = 0;
@@ -235,8 +239,10 @@ window.onload = function(){
                     posx = steps[i].originx + steps[i].length;
                 }
             }
+            
             //check if it's within the steps
-            if (posx > steps[i].originx-cubeWidth && posx < steps[i].originx+steps[i].length){           
+            if (posx > steps[i].originx-cubeWidth && posx < steps[i].originx+steps[i].length){  
+                inCollision = true;         
                 if (posy + cubeWidth > steps[i].originy && posy + cubeWidth - speedy <= steps[i].originy + steps[i].height){
                     speedy = 0;
                     posy = steps[i].originy - cubeWidth;
@@ -247,13 +253,14 @@ window.onload = function(){
                 }
             }
        
-        }   
+        }  
+        inCollision = false; 
     }
 
     function MoveSteps(){
         for (i=0; i<steps.length; i++){
             //move steps
-            steps[i].originy += 2;
+            steps[i].originy += Math.floor((Math.random() * 3)) + 1;
         }
     }
 
@@ -319,20 +326,22 @@ window.onload = function(){
         }
         else if (gameStage === 1){
             //render the cube
-            context.strokeStyle="black";
-            context.fillStyle="black";
-            context.beginPath();
-            context.rect(posx, posy, cubeWidth, cubeWidth);
-            //context.arc(posx, posy, 2, 0, Math.PI * 2);
-            context.fill();  
-            context.strokeStyle="red";
-            context.lineWidth=10;
-            context.beginPath();
-            context.moveTo(posx+15, posy+20);
-            context.lineTo(posx+20, posy+20);
-            context.moveTo(posx+30, posy+20);
-            context.lineTo(posx+35, posy+20);
-            context.stroke();
+            if (playerSpawned === true){
+                context.strokeStyle="black";
+                context.fillStyle="black";
+                context.beginPath();
+                context.rect(posx, posy, cubeWidth, cubeWidth);
+                //context.arc(posx, posy, 2, 0, Math.PI * 2);
+                context.fill();  
+                context.strokeStyle="red";
+                context.lineWidth=10;
+                context.beginPath();
+                context.moveTo(posx+15, posy+20);
+                context.lineTo(posx+20, posy+20);
+                context.moveTo(posx+30, posy+20);
+                context.lineTo(posx+35, posy+20);
+                context.stroke();
+            }
 
             //render the steps
             for (i=0; i<steps.length; i++){
@@ -354,12 +363,15 @@ window.onload = function(){
     }
 
     function Update(){
-        if (gameStage === 1){
-            MoveSteps();
-            DetectCollision();
+        
+        MoveSteps();
+        if (gameStage === 1 && playerSpawned === true){
+            if (dead === false)
+                DetectCollision();
+
             CheckBound(posx, posy);   
         }
-
+        
         Render();
         requestAnimationFrame(Update);
     }
