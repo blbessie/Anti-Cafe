@@ -9,24 +9,27 @@ window.onload = function(){
 	    context = canvas.getContext("2d"),
 	    width = canvas.width = window.innerWidth / 2,
         height = canvas.height = window.innerHeight,
-        score = 0;
+        score = 0,
         posx = 10,
         posy = 10,
         speedx = 0,
         speedy = 0,
         gravity = 0.2,
         move = false,
-        gameStage=0; //0-menu, 1-main, 2-gameover
+        gameStage=0, //0-menu, 1-main, 2-gameover
         cubeWidth = 50,
         lastJumpTime = start,
         steps = [],
         buttons = [],
-        scoreBoard = [],
         dead = false,
         deathSound = new Audio("aud/death.wav"),
         jumpSound = new Audio("aud/jump.mp3"),
         scoreSound = new Audio("aud/score.wav"),
-        startSound = new Audio("aud/start.wav");
+        startSound = new Audio("aud/start.wav"),
+        username = document.getElementById("currentUser").innerText;
+        
+
+    
 
     GameSetUp();
     Menu();
@@ -105,12 +108,13 @@ window.onload = function(){
         //request for data
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                var myObj = JSON.parse(this.responseText);
-                scoreBoard.push(myObj.table[0].username + ", " + myObj.table[0].password);
+            if (this.readyState == 4 && this.status == 200) {
+                var myObj = this.responseText;
+                document.getElementById("leaderboard").innerHTML = myObj;
+                
             }
         };
-        xmlhttp.open("GET", "Mini6.json", true);
+        xmlhttp.open("GET", "FetchGameRecord.php", true);
         xmlhttp.send();
 
         canvas.addEventListener("click", function(event) {
@@ -136,7 +140,7 @@ window.onload = function(){
                     event.y > buttons[1].y && 
                     event.y < buttons[1].y + buttons[1].h
                 ) {
-                    window.location.replace("index.php");
+                    window.location.replace("main.php");
                 }
             }
         });   
@@ -144,25 +148,47 @@ window.onload = function(){
 
     function GameOver(){
         
-
         //save score in json format
-        var username = sessionStorage.getItem("username");
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!
         var yyyy = today.getFullYear();
-        var x = JSON.stringify({Username: username, Score: score, Time: today});
-        alert(username);
-        console.debug(x);
+        var credit = ((score)/100);
+        //var x = JSON.stringify({Username: username, Score: score, Time: today});
 
-        //update the score to the server or board
+        //ajax update database score
+        $.ajax({
+            url: "updateScore.php",
+            type: "POST",
+            data: { 'Username': username, 'Score': score, 'Time': today.toDateString(), 'Credits': (score/10) },                   
+            success: function(data)
+                        { 
+                            alert("Good game! Your score is "+score+" and you won "+credit+" points!");                                    
+                        }
+        }); 
+        
+        //ajax update credits
+        $.ajax({
+            url: "../AdminPage/admin.php",
+            type: "POST",
+            data: { 'username': username, 'amount': credit, 'button': 'add' },                   
+            success: function(data)
+            {
+                if(data == false) {
+                    alert("Error: not able to respond to the request.");
+                } else { 
+                    
+                }
+            }
+        });
 
         console.debug("game over");
         //clearInterval(1);
         //clearInterval(2);
         gameStage = 0;
-        context.clearRect(0, 0, width, height);      
-        Menu();
+        context.clearRect(0, 0, width, height);  
+        document.location.reload(true);    
+        //Menu();
     }
 
     function isGrounded(){
@@ -254,12 +280,7 @@ window.onload = function(){
 
         if (gameStage === 0){
             //render the menu
-            //render the score board
-            context.font="10px Verdana";
-            context.textAlign="left"; 
-            context.fillStyle="black";
-            context.fillText(scoreBoard[0],20, 30);
-
+            
             //render the start button
             context.fillStyle = "black";
             context.lineWidth = 1;
