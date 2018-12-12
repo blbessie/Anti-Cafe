@@ -23,6 +23,7 @@ $fname =  $row['fname'];
 $points =  $row['points'];
  
         echo "<tr>";
+        echo "<td> </td>";
         echo "<td>" . $username . "</td>";
         echo "<td>" . $lname . "</td>";
         echo "<td>" . $fname . "</td>";

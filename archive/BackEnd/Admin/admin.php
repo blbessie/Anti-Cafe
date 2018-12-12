@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $username   = mysqli_real_escape_string ($connection,$_POST['username']);
     $amount   = mysqli_real_escape_string ($connection,$_POST['amount']);
     $button   = mysqli_real_escape_string ($connection,$_POST['button']);
+    
        
     $query = "SELECT userID,points,lname,fname,username FROM WebsiteUsers where username='$username'";
     $result = mysqli_query($connection,$query);
@@ -51,6 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($connection->query($sql) === TRUE) {
 
             echo "<tr>";
+            echo "<td>" . $button . "</td>";
             echo "<td>" . $username . "</td>";
             echo "<td>" . $lname . "</td>";
             echo "<td>" . $fname . "</td>";

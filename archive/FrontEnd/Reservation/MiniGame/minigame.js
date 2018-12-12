@@ -170,7 +170,7 @@ window.onload = function(){
         
         //ajax update credits
         $.ajax({
-            url: "/FrontEnd/Admin/admin.php",
+            url: "/BackEnd/Admin/admin.php",
             type: "POST",
             data: { 'username': username, 'amount': credit, 'button': 'add' },                   
             success: function(data)

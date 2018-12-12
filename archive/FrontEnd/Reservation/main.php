@@ -199,7 +199,7 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
       
-          <img id="logo" style="width:50px; height:50px"  src="/FrontEnd/IMG/sign.png" alt="logo"/>
+          <img id="logo" style="width:100px; height:57px"  src="/FrontEnd/IMG/anti.png" alt="logo"/>
           <!-- Toggler/collapsibe Button -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -270,13 +270,13 @@
         <!-- The slideshow -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/img/coffee.jpg" alt="Los Angeles">
+            <img src="/FrontEnd/IMG/coffee.jpg" alt="Los Angeles">
           </div>
           <div class="carousel-item">
-            <img src="/img/coffee.jpg" alt="Chicago">
+            <img src="/FrontEnd/IMG/coffee.jpg" alt="Chicago">
           </div>
           <div class="carousel-item">
-            <img src="/img/coffee.jpg" alt="New York">
+            <img src="/FrontEnd/IMG/coffee.jpg" alt="New York">
           </div>
         </div>
       
@@ -336,7 +336,7 @@
 
                 <div class="row">
                   <div class="col">
-                    <img src='../img/cafemap.jpg' d="cafeGUI" class='img.fluid img-thumbnail mx-auto d-block'>
+                    <img src='/FrontEnd/IMG/cafemap.jpg' d="cafeGUI" class='img.fluid img-thumbnail mx-auto d-block'>
 
                     <div class='form-check seatSelector' id='table1'>
                         <img src='/FrontEnd/IMG/seat1.png' style='width: 80px; height: 80px; pacity: 0.6;'>

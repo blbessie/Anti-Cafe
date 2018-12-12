@@ -267,7 +267,7 @@
 				break;
 				
 			case 1:		//spooky
-			document.getElementById("show_results").innerHTML = '<h1> Spicy Pumpkin Chili </h1><div id="quiz"><div id="questions">You\'re a spooky person. We recommad you to\
+				document.getElementById("show_results").innerHTML = '<h1> Spicy Pumpkin Chili </h1><div id="quiz"><div id="questions">You\'re a spooky person. We recommad you to\
 															try out our halloween special dish</div></div>\
 															<br><br>\
 															<p id="quiz">Made with Ground Beef, Red Pepper, Pumpkin Pie, Tomatoes</p><br><br>';
@@ -304,7 +304,7 @@
 				break;
 				
 			default: 
-			document.getElementById("show_results").innerHTML = '<h1> Hot Breakfast Sandwich </h1><div id="quiz"><div id="questions">You\'re a mystery person. We recommad you to\
+				document.getElementById("show_results").innerHTML = '<h1> Hot Breakfast Sandwich </h1><div id="quiz"><div id="questions">You\'re a mystery person. We recommad you to\
 																try out our special Sandwich\
 																</div></div><br><br>\
 																<p id="quiz">Made with Seasoned Egg, Chesse, Bacon</p><br><br>';
