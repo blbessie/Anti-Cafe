@@ -24,7 +24,7 @@ CREATE TABLE TimeTable (
 );
 
 INSERT INTO TimeTable (timeslot, table1, table2)
-VALUES ('9:00', 'F', 'F');
+VALUES ('09:00', 'F', 'F');
 INSERT INTO TimeTable (timeslot, table1, table2)
 VALUES ('10:00', 'F', 'F');
 INSERT INTO TimeTable (timeslot, table1, table2)
