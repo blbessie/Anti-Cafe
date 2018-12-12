@@ -83,7 +83,7 @@
             document.getElementById("duration").innerHTML = val;
         }
 
-        function ShowTables(str, dur) {
+        function ShowTables(str, dur, num) {
          
           var xhttp; 
           if (str == "" || dur == "") {
@@ -98,41 +98,43 @@
               document.getElementById("tableseats").innerHTML = this.responseText;
             }
           };
-          xhttp.open("GET", "CheckAvailability.php?time="+str+"&dur="+dur, true);
+          xhttp.open("GET", "CheckAvailability.php?time="+str+"&dur="+dur+"&number="+num, true);
           xhttp.send();
         }
 
         function ReserveSeat() {
           var CreditsToTake = $('#dur').val() * 5;
           var username = <?php echo json_encode($_SESSION['username']); ?>;
+          
           //ajax update credits
-          alert("hello");
-          $.ajax({
-              url: "../AdminPage/admin.php",
-              type: "POST",
-              data: { 'username': username, 'amount': CreditsToTake, 'button': 'remove' },                   
-              success: function(data)
-              {
-                  if(data == "PointLimit") {
-                      alert("You don't have enough points in order to complete the action.....");
-                  } else { 
-                    var seat = $(".radiocheck:checked").val(); 
-                        number =  $('#num').val();
-                        duration = $('#dur').val();
-                        time = $('#time').val();
-                    $.ajax({
-                      url: "Reserve.php",
-                      type: "POST",
-                      data: { 'seat': seat, 'number': number, 'duration': duration, 'time': time },                   
-                      success: function(data)
-                      {
-                        alert(data);
-                      }
-                    });
+          if ($(".radiocheck:checked").length === 1) {
+            $.ajax({
+                url: "../AdminPage/admin.php",
+                type: "POST",
+                data: { 'username': username, 'amount': CreditsToTake, 'button': 'remove' },                   
+                success: function(data)
+                {
+                    if(data == "PointLimit") {
+                        alert("You don't have enough points in order to complete the action.....");
+                    } else { 
+                      alert("You spent " + CreditsToTake + " credits for this reservation.");
+                      var seat = $(".radiocheck:checked").val(); 
+                          number =  $('#num').val();
+                          duration = $('#dur').val();
+                          time = $('#time').val();
+                      $.ajax({
+                        url: "Reserve.php",
+                        type: "POST",
+                        data: { 'seat': seat, 'number': number, 'duration': duration, 'time': time },                   
+                        success: function(data)
+                        {
+                          alert(data);
+                        }
+                      });
+                    }
                   }
-                }
-            });
-            alert("hello");
+              });
+            }
           }
         
       </script>
@@ -214,7 +216,6 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myProfile">Profile</a>
-                <a class="dropdown-item" href="#">My Reservation</a>
                 <a class="dropdown-item" href="../logout.php">Log out</a>
               </div>
             </li>
@@ -292,6 +293,7 @@
     <div class="container" id="reserve">
         <div class="p-5 text-center bg-dark mb-0">
             <h2 style="color: white">SELECT TIME AND DATE FOR YOUR RESERVATION</h2>
+            <h4 style="color: white">5 Points per Hour</h2>
         </div>
           <form method="POST" action="">
             <div class="bg-secondary text-white pb-1 pt-6">
@@ -318,15 +320,15 @@
                       <h5>Duration</h5>
                       <p id="duration">1</p>
                       
-                      <input type="range" name="duration" id='dur' min="0" max="4" value="1" class="rounded" onchange="UpdateValue(this.value)">
+                      <input type="range" name="duration" id='dur' min="0" max="4" value="1" class="rounded" onchange="UpdateValue(this.value)" required>
                              
                   </div>
                   <div class="p-2 flex-fill text-center">
                       <h5>People</h5>
-                      <input type="number" name="number" id="num" class="rounded" >            
+                      <input type="number" name="number" id="num" class="rounded" required>            
                   </div>
                   <div class="d-flex m-3 justify-content-end">
-                      <input type="button" value="Check Availablity" class="btn btn-info" onclick="ShowTables(document.getElementById('time').value, document.getElementById('dur').value)">
+                      <input type="button" value="Check Availablity" class="btn btn-info" onclick="ShowTables(document.getElementById('time').value, document.getElementById('dur').value, document.getElementById('num').value)">
                   </div>
               </div>
 

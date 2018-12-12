@@ -1,9 +1,19 @@
 <?php
+
 include 'db_connection.php';
 include 'db_basicoperation.php';
 
 $connection = ConnectDB();
 $table_name = "TimeTable";
+
+if ($_GET['number'] > 4){
+    echo "
+        <div style='margin-top: 30px; margin-left: 200px;'>
+            <p style='color: white;'>Exceed the limit of number of people</p>
+        </div>
+        ";
+    exit;
+}
 
 $sql = "SELECT i, table1, table2 
 FROM $table_name WHERE timeslot = ?";
