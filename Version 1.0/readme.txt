@@ -23,6 +23,8 @@ Everyone:
 
 DESCRIPTION OF HOW TO RUN YOUR SITE
 
+Web browser: Google Chrome
+
 SET UP
 1 - Copy paste index.html and both BackEnd and FrontEnd folders to the htdocs folder of XAMPP
 2 - Install the database and create a database called "myDB"
@@ -34,10 +36,10 @@ SET UP
 
 
 ADMIN
-Login with username "admin" to get to the admin page where you are able to access the database. To display a client information, juste write their username and click 'display'. To add/delete membership points, write the username of the client and the amount you would like to "add/remove". 
+Log in with username 'admin' to get to the admin page where you are able to access the database. To display a client information, juste write their username and click 'display'. To add/delete membership points, write the username of the client and the amount you would like to 'add/remove'. 
 
 RESERVATION
-Once logged into the main page, there are six options for the users to select at the top menu panel, user may also explore the page by scrolling the page:
+Log in with username of a user to access the main page. Once logged into the main page, there are six options for the users to select at the top menu panel, user may also explore the page by scrolling the page:
 
 1. Reserve
 By clicking the Reserve button, the main page will direct user to the Reservation section. User may select the time slot for that day, how long he is planning to stay and how many people is coming. 
