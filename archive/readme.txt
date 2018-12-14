@@ -24,10 +24,13 @@ Everyone:
 DESCRIPTION OF HOW TO RUN YOUR SITE
 
 SET UP
-1 - Install the database with table included in WebsitesUsers.sql 
-2 - Open index.html for the home page
-3 - Create the user with username "admin" to represent the café admin account
-4 - Create a user to represent a client 
+1 - Copy paste index.html and both BackEnd and FrontEnd folders to the htdocs folder of XAMPP
+2 - Install the database and create a database called "myDB"
+3 - In the new database, execute the files included under /BackEnd/DatabaseSetupFile
+4 - Start XAMPP and start both database and website servers
+5 - Open index.html for the home page
+6 - Create the user with username "admin" to represent the café admin account
+7 - Create a user to represent a client 
 
 
 ADMIN
