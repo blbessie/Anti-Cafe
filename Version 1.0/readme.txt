@@ -50,12 +50,13 @@ After selecting a table successfully, by clicking the Reserve button, a reservat
 By clicking the Menu button, the main page will direct user to the menu section, where all the orders are listed. 
 
 3. Survey
-By clicking the Survey button, User will enter another page to finish his survey, where he will need to make different choice to get a recommendation on the menu. At the end, he may be able to choose to go back to main page.
+By clicking the Survey button, User will enter another page to finish his survey, where he will need to make different choice to get a recommendation on the menu. He may be able to choose to go back to main page at anytime during the quiz.
 
 4. Game
 One of the feature of this website is that user may be able to challenge themselves to win credits by trying the game. In the game page, on the left there is the main canvas for the game, and on the right, there is the leaderboard and rules. The leaderboard records the first five highest score and this will be updated every time a user beat one of the score. At the end of each game, a message will tell user how much score he got and how much credits is won by this. User can click quit button on the menu to go back to main page any time.
 
 5. Contact
 By clicking the Survey button, user will be directed to the bottom of the page where contact info and open hours are listed. By clicking the green arrow sign at the footer, it will direct user to the top of the page.
+
 6. Personal information
 In personal information section, user may click the profile button to check his login info and personal info. User may also choose to log out by clicking the logout button which will redirect user to the login page.
