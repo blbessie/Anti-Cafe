@@ -1,0 +1,227 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: Georgia, "Times New Roman", Times, serif;
+    background-color:#F2EEEB;
+    font-size: 15px;
+}
+
+
+#anticafe{
+    width: 15%;
+    height:15%;
+    position:absolute;
+    display:none;
+    z-index: 2003;
+    top:175px; 
+    left:525px;
+}
+
+#anticafe2{
+    width: 15%;
+    height:15%;
+    position:absolute;
+    display:none;
+    z-index: 2003;
+    top:75px; 
+    left:525px;
+}
+
+#description {
+    position: absolute;
+    top: 250px;
+    left: 700px;
+
+    width: 25%;
+    height: 200px;
+    padding: 30px;
+
+    background-color:#CBB292;
+    color: #F2EEEB;
+    text-align: justify;
+
+    display:none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#location {
+    position: absolute;
+    bottom: 75px;
+    left: 40%;
+    width: 200px;   
+
+    text-align: center;
+    color: #CBB292;
+}
+
+#oldMembers {
+    background-color:#E64C3C;
+    color:#F2EEEB;
+
+    position: absolute;    
+    top:200px;
+    width: 165px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+#newMembers {
+    background-color:#E64C3C;
+    color:#F2EEEB;
+
+    position: absolute;
+    top:200px;
+    left: 225px;
+    width: 165px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#oldMembers:hover{
+    background-color: #F2EEEB;
+    color: #E64C3C;
+    font-weight:bold;
+}   
+
+#newMembers:hover {
+    background-color: #F2EEEB;
+    color: #E64C3C;
+    font-weight:bold;
+} 
+
+.overlay,
+.overlay2 {
+    opacity:0.8;
+    background-color:#F2EEEB;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+    display:none;
+}
+
+.toQuit {
+    position:absolute;
+    color: #F2EEEB;
+    font-weight: bold;
+    display:none;
+    z-index:2001;
+    top:305px; 
+    left:875px;
+}
+
+.toQuit2 {
+    position:absolute;
+    color: #F2EEEB;
+    font-weight: bold;
+    display:none;
+    z-index:3004;
+    top:205px; 
+    left:875px;
+}
+
+.toQuit:hover,
+.toQuit2:hover{
+    color: #E64C3C;
+}   
+
+.popupLogIn{
+    background-color: #CBB292;
+    position:absolute;
+    top:300px;
+    left:500px;
+    z-index:2000;
+    display:none;
+    border-radius: 5px;
+    height:175px; 
+    width: 400px;
+}
+
+.popupSignUp{
+    background-color: #CBB292;
+    position:absolute;
+    top:200px;
+    left:500px;
+    z-index:2000;
+    border-radius: 5px;
+    height:450px; 
+    width: 400px;
+    display:none;
+}
+
+.popup{
+    position: relative;
+    top:25px;
+    left:50px;
+}
+
+.popup label {
+	display:block;
+	margin-bottom: 20px;
+}
+
+.popup label > span{
+	display: inline-block;
+	float: left;
+    width: 300px;
+    color: #F2EEEB;
+}
+
+.popup input[type=text],
+.popup input[type=password],
+.popup input[type=email]
+{
+	background: transparent;
+	border: none;
+	border-bottom: 1px dashed #E64C3C;
+	width: 300px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+	font-style: italic;
+}
+
+.popup textarea{
+    background: #F2EEEB;
+	border: none;
+    padding: 8px 10px 8px 10px;
+    
+	font-style: italic;
+	width: 300px;
+	overflow: hidden;
+	resize:none;
+	height:20px;
+}
+
+.popup textarea:focus, 
+.popup input[type=text]:focus,
+.popup input[type=password]:focus,
+.popup input[type=email]:focus {
+    border-bottom: 1px dashed #F2EEEB;
+}
+
+.popup input[type=submit],
+.popup input[type=button]{
+	background: #F2EEEB;
+	border: none;
+	padding: 8px 10px 8px 10px;
+	border-radius: 5px;
+    color: #E64C3C;
+    font-weight: bold;
+}
+
+.popup input[type=submit]:hover,
+.popup input[type=button]:hover{
+color: #CBB292;
+font-weight: bold;
+}

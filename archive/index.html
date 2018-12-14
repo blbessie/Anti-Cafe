@@ -3,17 +3,17 @@
 
 	<head>
 		<title>COMP307 - Main Page</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/FrontEnd/Login/style.css">
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="java.js"></script>
-        <script type="text/javascript" src="SHA256.js"></script>
+        <script type="text/javascript" src="/FrontEnd//Login/java.js"></script>
+        <script type="text/javascript" src="/BackEnd/Login/SHA256.js"></script>
 
         <script>
                 $(document).ready(function() {
                     $("#signup_submit").click(function(event){
                         $.ajax({
-                            url: "signup.php", 
+                            url: "/BackEnd/Login/signup.php", 
                             type: "POST",
                             data: {'fname': $('#fname').val(),
                                    'lname': $('#lname').val(),
@@ -33,7 +33,7 @@
                     });
                     $("#login_submit").click(function(event){
                         $.ajax({
-                            url: "login.php", 
+                            url: "/BackEnd/Login/login.php", 
                             type: "POST",
                             data: {'username': $('#login_username').val(),
                                    'password': SHA256($('#login_password').val()),
@@ -44,10 +44,10 @@
                                     alert(data.message);
                                 }else if(data.message == 'admin'){
                                     alert('success');
-                                    document.location.href = '/Project/AdminPage/adminpage.php';
+                                    document.location.href = '/FrontEnd/Admin/adminpage.php';
                                 }else{
                                     alert('success');
-                                    window.location.href = "/Project/Reservation/main.php";                     
+                                    window.location.href = "/FrontEnd/Reservation/main.php";                     
                                 }
                             }
                         });
@@ -62,7 +62,7 @@
 <body style="background-color:#F2EEEB">
 
     <div id="main">
-        <img id="logo" style="width:448.5px; height:256px"  src="sign.png" alt="logo"/>
+        <img id="logo" style="width:448.5px; height:256px"  src="/FrontEnd/IMG/sign.png" alt="logo"/>
     </div>
 
     <div id="description"> The anticaf&eacute concept is to provide a space when you need to study. 
@@ -77,7 +77,7 @@
 
     <a onClick="showLogIn()"><div class="overlay"></div></a>
     <a class="toQuit" onClick="showLogIn()">X</a>
-    <img id="anticafe" src="anti.png" alt="logo"/>
+    <img id="anticafe" src="/FrontEnd/IMG/anti.png" alt="logo"/>
     <div class="popupLogIn"> 
         <!----form class="popup" name="login" action="login.php"  method="post"-->
         <form class="popup" name="login">
@@ -89,7 +89,7 @@
 
     <a onClick="showSignUp()"><div class="overlay2"></div></a>
     <a class="toQuit2" onClick="showSignUp()">X</a>
-    <img id="anticafe2" src="anti.png" alt="logo"/>
+    <img id="anticafe2" src="/FrontEnd/IMG/anti.png" alt="logo"/>
     <div class="popupSignUp"> 
         <!--form class="popup" name="signup" action="signup.php" onsubmit="return validateForm()" method="post"-->
         <form class="popup" name="signup" onsubmit="return validateForm()">
